@@ -17,6 +17,8 @@ cd ffmpegthumbnailer-2.2.2/
 export PKG_CONFIG_PATH="$PKG_CONFIG_PATH:/app/vendor/ffmpeg/lib/pkgconfig/"
 echo $PKG_CONFIG_PATH
 
+cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_GIO=ON -DENABLE_THUMBNAILER=ON .
+PREFIX=/app/vendor/ffmpegthumbnailer make
 PREFIX=/app/vendor/ffmpegthumbnailer make install
 mkdir -p "$BUILD_DIR"/vendor/ffmpegthumbnailer
 cp -R /app/vendor/ffmpegthumbnailer/ "$BUILD_DIR"/vendor/ffmpegthumbnailer
